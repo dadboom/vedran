@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedran Dodik</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        h1 {
+            margin: 0;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .separator {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 20px 0;
+        }
+
+        .contact {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .contact a {
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-text {
+            transition: color 0.3s ease;
+        }
+
+        .profile-pic-container {
+            margin: 20px 0;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        /* Dark mode styles */
+        .dark-mode {
+            background: linear-gradient(135deg, #2c2c2c, #444);
+            color: #fff;
+        }
+
+        .dark-mode .container {
+            background: #333;
+        }
+
+        .dark-mode .container a {
+            color: white;
+        }
+
+        .dark-mode .container a:hover {
+            text-decoration: underline;
+        }
+
+        .dark-mode .container p {
+            color: #ccc;
+        }
+
+        .dark-mode h1 {
+            color: #fff; /* Ensures title is white in dark mode */
+        }
+
+        /* Light mode styles */
+        .light-mode {
+            background: linear-gradient(135deg, #3a8dff, #e0f7ff);
+            color: #333;
+        }
+
+        .light-mode .container {
+            background: white;
+            color: #333;
+        }
+
+        .light-mode .container a {
+            color: #0077cc;
+        }
+
+        .light-mode .container a:hover {
+            color: #005fa3;
+        }
+
+        .light-mode h1 {
+            color: #333; /* Ensures title is dark in light mode */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="main-title">Vedran Dodik</h1>
+        <div class="profile-pic-container">
+            <img id="profile-pic" class="profile-pic" src="https://gradskovijece.sarajevo.ba/wp-content/uploads/2021/03/vedran-dodik.jpg" alt="Vedran Dodik">
+        </div>
+        <hr class="separator">
+        <p id="description">
+            Vedran Dodik, rođen je 15. 02.1978 godine, od oca Jasmina i majke Aiše Mehičević, u Sarajevu, Općina Stari Grad Sarajevo.<br><br>
+            Završio je Osnovnu školu "Edhem Mulabdić" (ranije "Moric Moco Salom") na Bistriku.<br><br>
+            Nakon završene Srednje medicinske škole na Bjelavama, sa ocem Jasminom pokreće privatnu firmu za promet i distribuciju filmova i tv prava, koja nakon agresije, obnavlja preko 80 % devastiranih kina u cijeloj Bosni i Hercegovini.<br><br>
+            Paralelno uz rad, studira i završava Pravni fakultet, a prve sporove na sudu dobiva još kao student, zastupajući obespravljene stanare iz svog komšiluka, radnike Sarajevske pivare, kojima je privatizacijska mafija pokušala oteti stanove, te zahvaljujući tome postaje poznat široj javnosti kao borac za prava običnog čovjeka.<br><br>
+            Politiku prati još od rane mladosti, u doba raspada bivše Jugoslavije i uvođenja višestranačkog sistema.<br><br>
+            Trenutno je direktor agencije za nekretnine <a href="https://domus-nekretnine.ba" target="_blank" id="agency-link">DOMUS-NEKRETNINE</a> O.D.
+        </p>
+        <div class="contact" id="contact">
+            <p id="contact-message" class="contact-text">Ako želite da me kontaktirate, slobodno <a href="mailto:dinarijan@dodik.eu">napišite mail</a>!</p>
+            <p><a href="https://www.example.com/cv" target="_blank">Pogledajte moj CV</a></p>
+        </div>
+    </div>
+    <audio id="audio" src="https://dl.sndup.net/4523v/Taki%20Sam%20Ti%20Ja.mp3"></audio>
+    <script>
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const body = document.body;
+
+        function applyMode(isDark) {
+            if (isDark) {
+                body.classList.add('dark-mode');
+                body.classList.remove('light-mode');
+            } else {
+                body.classList.add('light-mode');
+                body.classList.remove('dark-mode');
+            }
+        }
+
+        applyMode(prefersDarkMode);
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            applyMode(e.matches);
+        });
+    </script>
+</body>
+</html>
